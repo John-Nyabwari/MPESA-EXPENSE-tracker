@@ -18,6 +18,12 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK components
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
       # This repo doesn't ship the gradlew wrapper jar (binary file), so setup-gradle
       # installs a matching Gradle CLI directly instead of relying on ./gradlew.
       - name: Set up Gradle
